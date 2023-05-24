@@ -22,7 +22,7 @@ app.post("/create-pdf", (req, res) => {
 
 app.get("/",welcomigMsg);
 function welcomigMsg(req,res){
-res.send(`welcom to resume`)
+res.send(`welcom`)
 }
 
 app.get("/fetch-pdf", (req, res) => {

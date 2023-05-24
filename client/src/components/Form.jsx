@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Education from "./Education";
 import Experiences from "./Experiences";
 import PersonalDetails from "./PersonalDetails";
@@ -69,8 +69,17 @@ console.log(`${process.env.REACT_APP_DATABASE_URL}create-pdf`)
     }
   };
 
+const handletest=async()=>{
+  const serverUrl=`${process.env.REACT_APP_DATABASE_URL}`
+const result = await axios.get(serverUrl)
+console.log(result.data)
+}
+
+
   return (
+    
     <div>
+      <button onClick={handletest}>clickm</button>
       <div className="d-flex justify-content-center">
         <h1 className="text-center">{FormTitle[page]}</h1>
       </div>

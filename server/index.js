@@ -2,9 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const pdf = require("html-pdf");
 const pdfSample = require("./pdf-sample");
-
 const app = express();
-
 const port = 4000;
 
 app.use(cors());
@@ -32,6 +30,15 @@ app.get("/fetch-pdf", (req, res) => {
 });
 
 app.use(express.static("../client/build"));
+
+
+app.use(function(req, res, next) {
+  res.header('Access-Control-Allow-Origin', 'http://localhost:3001');
+  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+  res.header('Access-Control-Allow-Headers', 'Content-Type');
+  next();
+});
+
 
 app.listen(port, () => {
   console.log(`Server is running on port=${port}`);

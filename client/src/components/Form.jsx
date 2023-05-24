@@ -54,7 +54,7 @@ const Form = () => {
     "Projects",
     "Extras",
   ];
-
+console.log(`${process.env.REACT_APP_DATABASE_URL}create-pdf`)
   const PageDisplay = () => {
     if (page === 0) {
       return <PersonalDetails formData={formData} setFormData={setFormData} />;
@@ -106,9 +106,9 @@ const Form = () => {
           onClick={() => {
             if (page === FormTitle.length - 1) {
               axios
-                .post("http://localhost:4000/create-pdf", formData)
+                .post(`${process.env.REACT_APP_DATABASE_URL}create-pdf`, formData)
                 .then(() =>
-                  axios.get("http://localhost:4000/fetch-pdf", {
+                  axios.get(`${process.env.REACT_APP_DATABASE_URL}fetch-pdf`, {
                     responseType: "blob",
                   })
                 )

@@ -22,6 +22,11 @@ app.post("/create-pdf", (req, res) => {
   });
 });
 
+app.get("/",welcomigMsg);
+function welcomigMsg(req,res){
+res.send(`welcom to resume`)
+}
+
 app.get("/fetch-pdf", (req, res) => {
   res.sendFile(`${__dirname}/Resume.pdf`);
 });
